@@ -21,8 +21,13 @@ class ThemeInstaller extends LibraryInstaller {
 	}
 
 	public function getInstallPath(PackageInterface $package) {
-		$parts = explode('/', $package->getName());
-		return "themes/" . end($parts);
+		$name = $package->getTargetDir()
+			? $package->getTargetDir()
+			: $package->getName();
+		$parts = explode('/', $name);
+		$name = end($parts);
+		if (substr($name, 0, 13) === 'silverstripe-') $name = substr($name, 13);
+		return "themes/" . $name;
 	}
 
 }
