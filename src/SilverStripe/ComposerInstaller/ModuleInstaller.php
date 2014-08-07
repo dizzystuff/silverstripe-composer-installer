@@ -27,7 +27,7 @@ class ModuleInstaller extends LibraryInstaller {
 		$parts = explode('/', $name);
 		$name = end($parts);
 		if (substr($name, 0, 13) === 'silverstripe-') $name = substr($name, 13);
-		return $name;
+		return 'www/' . $name;
 	}
 
 }

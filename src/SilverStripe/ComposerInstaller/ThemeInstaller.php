@@ -27,7 +27,7 @@ class ThemeInstaller extends LibraryInstaller {
 		$parts = explode('/', $name);
 		$name = end($parts);
 		if (substr($name, 0, 13) === 'silverstripe-') $name = substr($name, 13);
-		return "themes/" . $name;
+		return "www/themes/" . $name;
 	}
 
 }
